@@ -43,9 +43,9 @@ package org.magnum.dataup;
     \:\__\        \::/  /       \::/  /        /:/  /     \:\__\          \:\__\        
      \/__/         \/__/         \/__/         \/__/       \/__/           \/__/        
  */
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.test.util.AssertionErrors.fail;
+
 import io.magnum.autograder.junit.Rubric;
 
 import java.io.File;
@@ -58,7 +58,7 @@ import java.util.Set;
 import java.util.UUID;
 
 import org.apache.commons.io.IOUtils;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.magnum.dataup.model.Video;
 import org.magnum.dataup.model.VideoStatus;
 import org.magnum.dataup.model.VideoStatus.VideoState;
@@ -107,7 +107,7 @@ public class AutoGradingTest {
 		assertEquals(video.getLocation(), received.getLocation());
 		assertEquals(video.getSubject(), received.getSubject());
 		assertTrue(received.getId() > 0);
-		assertTrue(received.getDataUrl() != null);
+		assertNotNull(received.getDataUrl());
 	}
 	
 	@Rubric(

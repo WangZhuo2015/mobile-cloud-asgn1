@@ -47,6 +47,10 @@ import java.util.Collection;
 import org.magnum.dataup.model.Video;
 import org.magnum.dataup.model.VideoStatus;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import retrofit.client.Response;
 import retrofit.http.Body;
 import retrofit.http.GET;
@@ -126,6 +130,7 @@ import retrofit.mime.TypedFile;
  * @author jules
  *
  */
+
 public interface VideoSvcApi {
 
 	public static final String DATA_PARAMETER = "data";
@@ -170,7 +175,7 @@ public interface VideoSvcApi {
 	 */
 	@Multipart
 	@POST(VIDEO_DATA_PATH)
-	public VideoStatus setVideoData(@Path(ID_PARAMETER) long id, @Part(DATA_PARAMETER) TypedFile videoData);
+	public VideoStatus setVideoData(@PathVariable("id") @Path(ID_PARAMETER) long id, @Part(DATA_PARAMETER) TypedFile videoData);
 	
 	/**
 	 * This endpoint should return the video data that has been associated with

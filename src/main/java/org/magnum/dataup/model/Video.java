@@ -62,11 +62,17 @@ public class Video {
 		public VideoBuilder withContentType(String contentType);
 	}
 
-	private long id;
+	@JsonProperty("id")
+	private Long id;
+	@JsonProperty("title")
 	private String title;
+	@JsonProperty("duration")
 	private long duration;
+	@JsonProperty("location")
 	private String location;
+	@JsonProperty("subject")
 	private String subject;
+	@JsonProperty("contentType")
 	private String contentType;
 
 	@JsonIgnore
